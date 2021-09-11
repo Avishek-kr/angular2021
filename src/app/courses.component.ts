@@ -17,5 +17,5 @@ export class CoursesComponent{
         return this.title;
     }
 
-    courses= ["course 1","course 2","course 3"]
+    courses;
 }
