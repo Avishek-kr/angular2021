@@ -7,13 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-course';
-  data={
-    name:'Avishek'
-  }
-  onClick(){
-    alert("Hello Fuck You")
-  }
-  onKeyUp(newTitle:string){
-    this.data.name= newTitle
-  }
 }
