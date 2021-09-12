@@ -4,7 +4,7 @@ import { CoursesService } from "./courses.service";
 @Component({
     selector: 'courses',  // <courses>
     template: `
-        <input (keyup.w)="onKeyUp()" />
+        <input #email (keyup.enter)="onKeyUp(email.value)" />
     `
 })
 export class CoursesComponent{
@@ -18,8 +18,8 @@ export class CoursesComponent{
         this.courses = service.getCourses()
     }
 
-    onKeyUp(){
-        console.log("Enter was pressed")
+    onKeyUp(email:any){
+        console.log(email)
     }
 
     onDivClicked(){
