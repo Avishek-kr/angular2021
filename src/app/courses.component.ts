@@ -4,9 +4,7 @@ import { CoursesService } from "./courses.service";
 @Component({
     selector: 'courses',  // <courses>
     template: `
-    <div (click)="onDivClicked()">
-        <button class="btn btn-primary" (click)="onSave($event)"> Save</button>
-        </div>
+        <input (keyup.w)="onKeyUp()" />
     `
 })
 export class CoursesComponent{
@@ -18,6 +16,10 @@ export class CoursesComponent{
 
     constructor(service: CoursesService){
         this.courses = service.getCourses()
+    }
+
+    onKeyUp(){
+        console.log("Enter was pressed")
     }
 
     onDivClicked(){
