@@ -15,10 +15,11 @@ import { CoursesService } from "./courses.service";
                 {{course}}
             </li>
         </ul>
-        <button class="btn btn-primary"> Save</button>
+        <button class="btn btn-primary" [class.active]="isActive  "> Save</button>
     `
 })
 export class CoursesComponent{
+    isActive= true;
     title= "List of courses";
     imageUrl="https://image.shutterstock.com/image-photo/surreal-image-african-elephant-wearing-260nw-1365289022.jpg"
     colSpan=2
