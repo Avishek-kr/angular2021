@@ -3,19 +3,10 @@ import { CoursesService } from "./courses.service";
 
 @Component({
     selector: 'courses',  // <courses>
-    template: `<h2>{{ title }}</h2>
-    <img [src]="imageUrl" />
-    <table>
-        <tr>
-            <td [attr.colspan]="colSpan"></td>
-        </tr>
-    </table>
-        <ul>
-            <li *ngFor="let course of courses">
-                {{course}}
-            </li>
-        </ul>
-        <button [style.backgroundColor]="isActive ? 'blue' : 'white'"> Save</button>
+    template: `
+    <div (click)="onDivClicked()">
+        <button class="btn btn-primary" (click)="onSave($event)"> Save</button>
+        </div>
     `
 })
 export class CoursesComponent{
@@ -27,5 +18,14 @@ export class CoursesComponent{
 
     constructor(service: CoursesService){
         this.courses = service.getCourses()
+    }
+
+    onDivClicked(){
+        console.log("div is clicked")
+    }
+
+    onSave($event:any){
+        $event.stopPropagation();
+        console.log("button was Clicked", $event)
     }
 }
