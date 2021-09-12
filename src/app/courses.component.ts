@@ -4,7 +4,7 @@ import { CoursesService } from "./courses.service";
 @Component({
     selector: 'courses',  // <courses>
     template: `
-        <input #email (keyup.enter)="onKeyUp(email.value)" />
+        <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
     `
 })
 export class CoursesComponent{
@@ -13,13 +13,14 @@ export class CoursesComponent{
     imageUrl="https://image.shutterstock.com/image-photo/surreal-image-african-elephant-wearing-260nw-1365289022.jpg"
     colSpan=2
     courses;
+    email="me@example.com";
 
     constructor(service: CoursesService){
         this.courses = service.getCourses()
     }
 
-    onKeyUp(email:any){
-        console.log(email)
+    onKeyUp(){
+        console.log(this.email);
     }
 
     onDivClicked(){
