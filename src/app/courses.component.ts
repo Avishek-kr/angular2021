@@ -4,7 +4,13 @@ import { CoursesService } from "./courses.service";
 @Component({
     selector: 'courses',  // <courses>
     template: `
-        <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
+        <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" /><br/>
+
+        {{course.title | uppercase }} <br/>
+        {{course.students | number }} <br/>
+        {{course.rating | number:'2.1-1'}} <br/>
+        {{course.price | currency: 'INR': true: '3.2-2' }} <br/>
+        {{course.releaseDate | date:'shortDate'}} <br/>
     `
 })
 export class CoursesComponent{
@@ -30,5 +36,13 @@ export class CoursesComponent{
     onSave($event:any){
         $event.stopPropagation();
         console.log("button was Clicked", $event)
+    }
+
+    course={
+        title: "The complete angular course",
+        rating: 4.9745,
+        students: 3.123,
+        price: 190.95,
+        releaseDate: new Date(2020, 3, 1)
     }
 }
