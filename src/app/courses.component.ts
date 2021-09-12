@@ -11,6 +11,9 @@ import { CoursesService } from "./courses.service";
         {{course.rating | number:'2.1-1'}} <br/>
         {{course.price | currency: 'INR': true: '3.2-2' }} <br/>
         {{course.releaseDate | date:'shortDate'}} <br/>
+
+        {{text | summary:10}}
+
     `
 })
 export class CoursesComponent{
@@ -45,4 +48,6 @@ export class CoursesComponent{
         price: 190.95,
         releaseDate: new Date(2020, 3, 1)
     }
+
+    text=`Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam commodi rem modi facilis quas blanditiis reiciendis debitis vel iste ab?`
 }
